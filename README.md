@@ -8,6 +8,8 @@
 
 2. 문제를 풀었으면 commit한다. 
 
+   정 못하겠으면 그냥 폴더 이름 만들고 master branch에다가 commit해도 됨 
+
    커밋 가이드 : https://github.com/tentasys/study_with_DS/wiki/branch-commit-%EA%B0%80%EC%9D%B4%EB%93%9C
 
 3. 패널티는 따로 없는데, 굳이 있다면 아래와 같다.
