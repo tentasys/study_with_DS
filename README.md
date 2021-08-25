@@ -4,11 +4,13 @@
 
 1. 매주 월요일부터 일요일까지, 주어진 문제들을 푼다. 못 풀겠으면 물어보거나 구글링해서 풀자!
 
-   문제 리스트 링크 : 
+   문제 리스트 링크 : https://github.com/tentasys/study_with_DS/wiki/%EB%AC%B8%EC%A0%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8
 
-2. 문제를 풀었으면 commit한다
+2. 문제를 풀었으면 commit한다. 
 
-   커밋 가이드 :
+   정 못하겠으면 그냥 폴더 이름 만들고 master branch에다가 commit해도 됨 
+
+   커밋 가이드 : https://github.com/tentasys/study_with_DS/wiki/branch-commit-%EA%B0%80%EC%9D%B4%EB%93%9C
 
 3. 패널티는 따로 없는데, 굳이 있다면 아래와 같다.
    - 양심의 가책이 느껴질 수 있음
