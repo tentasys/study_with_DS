@@ -1,0 +1,46 @@
+import itertools
+    
+n = input()
+a = list(map(int, input().split()))
+cnt = list(map(int, input().split()))
+yeonsan = ['+','-','×','/']
+ys_list = []
+ys_case =[]
+
+for i in range(0,4):
+    while cnt[i] > 0:
+        ys_list.append(yeonsan[i])
+        cnt[i] -= 1
+
+#순열
+ys_case = list(itertools.permutations(ys_list,len(ys_list)))
+
+#경우의 수 중복제거
+ys_case = list(set(ys_case))
+
+#모든 경우 구하기
+rtn_list =[]
+
+for i in ys_case:
+    temp = a[0]
+    for j in range(0,n-1):
+        k = j+1
+        if i[j]=='+':temp+=a[k]
+        elif i[j]=='-':temp-=a[k]
+        elif i[j]=='×':temp*=a[k]
+        elif i[j]=='/':
+            if temp==0 or a[k]==0 :
+                temp=0
+            elif temp*a[k]>0: #++,--
+                minus = False
+            elif temp*a[k]<0: #+-,-+
+                minus = True
+                
+            if temp!=0:
+                temp = abs(temp)//abs(a[k])
+                if minus == True: temp = -(temp)
+
+    rtn_list.append(temp)
+
+print(max(rtn_list))
+print(min(rtn_list))

@@ -1,0 +1,39 @@
+from collections import deque
+
+n,k = map(int, input().split())
+a = deque(list(map(int, input().split())))
+b = deque([0]*len(a))
+step = 0
+
+while True:
+    idx= n-1
+    
+    #step1 한칸이동,내리는곳에서는 내림
+    a.rotate(1)
+    b.rotate(1)
+    b[idx] = 0
+    #print("step1: ",a,b)
+    
+    #step2 앞에 비어있으면 이동, 내리는곳에서는 내림
+    for i in range(idx-1,-1,-1):
+        if b[i] == 1 and b[i+1] == 0 and a[i+1] > 0:
+            b[i] = 0
+            b[i+1] = 1
+            a[i+1] -= 1
+    b[idx] = 0
+    #print("step2: ",a,b)
+    
+    #step3 스타트 올리기 
+    if b[0] == 0 and a[0] > 0:
+        b[0] = 1
+        a[0] -= 1
+    #print("step3: "a,b)
+    
+    step += 1
+    
+    if a.count(0)>=k :
+        break
+    
+print(step)
+
+    
