@@ -1,0 +1,68 @@
+    import copy
+   
+    b,a = map(int,input().split())
+    c = []
+    for i in range(a):
+        c.append(list(map(int,input().split())))
+    day = 0
+    
+    #사전방지    
+    for i in range(0,a):
+        #가로 장벽
+        if sum(c[i]) == -a : return -1
+        temp = 0
+        for j in range(0,b):
+            temp += c[i][j]
+        #세로 장벽
+        if temp == -b : return -1
+    temp = copy.deepcopy(c)
+    while(True):
+        #익어보자
+        temp = find_num1(a,b,temp)
+        #전과 같으면 끝
+        if temp==c:
+            #print(c)
+            break;
+        #더 익어보자
+        else:
+            c = copy.deepcopy(temp)
+            day += 1
+    
+    print(day)
+
+
+
+#여기서부턴 함수
+def find_num1(a,b,c):
+    list_1 =[]
+
+    #1을 찾아보자
+    for i in range(a):
+        for j in range(b):
+            if c[i][j]==1:
+                list_1.append([i,j])
+
+    #익어야할 x,y 좌표
+    for i in list_1:
+        x,y = i[0],i[1]
+        
+        index_add = [[x+1,y], [x-1,y], [x,y+1], [x,y-1]]
+        #이제 진짜 익어보자
+        c = add(a,b,c,index_add)
+        
+    return c
+
+def add(a,b,c,index_add):
+    for i in index_add:
+        skip=False
+        x,y = i[0],i[1]
+        #테두리 체크
+        if x==-1 or x==a: skip=True
+        elif y==-1 or y==b: skip=True
+        #빈값체크
+        elif c[x][y]==-1: skip=True
+        
+        #익자
+        if skip==False : c[x][y]=1
+    
+    return c
