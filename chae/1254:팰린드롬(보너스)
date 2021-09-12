@@ -1,0 +1,13 @@
+    from collections import deque
+    
+    a = input()
+    
+    a_len = len(a)
+    for i in range(0,a_len):
+        temp = a[:i]
+        b = a+temp[::-1]
+        
+        if b==b[::-1]:
+            break
+    
+    print(b);
