@@ -1,0 +1,20 @@
+
+    num = input()
+    sp1 = num.split('-')
+   
+    answer = 0
+    
+    for i in sp1:
+        sp2 = list(map(int, i.split('+')))
+        temp = 0
+        
+        for j in sp2:
+            temp = temp + j
+        
+        if sp1.index(i) == 0 :
+            answer = temp
+        else:
+            answer = answer - temp
+    
+    print(answer)
+            
