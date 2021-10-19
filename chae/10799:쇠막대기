@@ -1,0 +1,19 @@
+layzer = input()
+
+layzer = layzer.replace("()","L")
+layzer = layzer.replace(")(","E")
+cnt = 0
+answer = 0
+
+for i in layzer:
+    if i == "(" :
+        cnt = cnt+1
+    elif i == ")" :
+        cnt = cnt-1
+        answer = answer + 1
+    elif i == "E" :
+        answer = answer + 1
+    else :
+        answer = answer + cnt
+
+print(answer)
